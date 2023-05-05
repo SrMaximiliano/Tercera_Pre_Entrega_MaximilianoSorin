@@ -21,9 +21,9 @@ class Entregable(models.Model):
 ¿Como le hago para usar subclases? ¿Y cuentan para la cantidad de clases que pide la entrega, o al ser subclases no se las cuenta como una clase hecha?
 """
 class Usuario(models.Model):
-    nombre= models.CharField(max_length=30)
-    apellido= models.CharField(max_length=30)
-    email= models.EmailField()
+    nombre_d_usuario= models.CharField(max_length=30)
+    contraseñas= models.CharField(max_length=30)
+#    email= models.EmailField(unique=True)
 #class usuario_prime(Usuario):
 #    nombre= models.CharField(max_length=30)
 #    apellido= models.CharField(max_length=30)
