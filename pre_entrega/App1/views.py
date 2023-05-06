@@ -40,7 +40,7 @@ def Formulario_Promocion_vendedor(request):
                   usuario.save()
                   return render(request, "App1/inicio.html")
       else:
-            miFormulario = UsuariosFormularios()
+            miFormulario = Promo_Vendedor_Formularios()
  
       return render(request, "App1/Formulario_Promocion_vendedor.html", {"miFormulario": miFormulario})
 
@@ -56,7 +56,7 @@ def Formulario_Vendedor_certificado(request):
                   usuario.save()
                   return render(request, "App1/inicio.html")
       else:
-            miFormulario = UsuariosFormularios()
+            miFormulario = Vendedor_C_Formularios()
  
       return render(request, "App1/Formulario_Vendedor_certificado.html", {"miFormulario": miFormulario})
 
