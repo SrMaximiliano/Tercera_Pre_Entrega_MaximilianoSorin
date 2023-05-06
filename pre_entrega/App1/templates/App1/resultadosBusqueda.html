@@ -7,12 +7,12 @@
     <title>Formulario - Agregar Curso</title>
 </head>
 <body>
-     <p> Estamos buscando el: {{usuario}}</p>
-     {% if usuarios %} 
+     <p> Estamos buscando el: {{nombre_d_usuario}}</p>
+     {% if nombre_d_usuarios %} 
      <ul>
-     {% for usuario in usuarios %} 
-         <li>{{usuario.nombre}}</li>
-         <li>{{usuario.Contraseñas}}</li>
+     {% for nombre_d_usuario in usuarios %} 
+         <li>{{nombre_d_usuarios.nombre_d_usuarios}}</li>
+         <li>{{nombre_d_usuarios.contraseña}}</li>
      {% endfor %}
      </ul>
      {% endif %}

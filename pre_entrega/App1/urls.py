@@ -11,8 +11,8 @@ urlpatterns = [
     path('Formulario_crearusuario', views.Formulario_crearusuario, name="Formulario_crearusuario"),
     path("Formulario_Vendedor_certificado", views.Formulario_Vendedor_certificado, name="Formulario_Vendedor_certificado"),
     path("Formulario_Promocion_vendedor", views.Formulario_Promocion_vendedor, name="Formulario_Promocion_vendedor"),
-#    path('busquedaUsuario',views.busquedaUsuario,name="busquedaUsuario"),
-#    path('buscar/',views.buscar),
+    path('busquedaUsuario',views.busquedaUsuario,name="busquedaUsuario"),
+    path('buscar/',views.buscar),
 
 
 

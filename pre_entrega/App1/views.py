@@ -59,14 +59,27 @@ def Formulario_Vendedor_certificado(request):
             miFormulario = Vendedor_C_Formularios()
  
       return render(request, "App1/Formulario_Vendedor_certificado.html", {"miFormulario": miFormulario})
-
-
-
-
-
 """
+def buscar(request):
+     respuesta= f"Estoy buscando al usuario: {request.GET['Usuario']}"
+     return HttpResponse(respuesta)
+"""
+def buscar(request):
+     if request.GET['nombre_d_usuario']:
+          nombre_d_usuario = request.GET['nombre_d_usuario']
+          nombre_d_usuarios= Usuario.objects.filter(nombre_d_usuario__icontains=nombre_d_usuario)
+
+          return render(request,'App1/resultadosBusqueda.html', {"usuarios":nombre_d_usuarios, "contraseña": nombre_d_usuarios })
+     else:
+          respuesta= "No enviaste datos"
+
+     return HttpResponse(respuesta)
+
+
+
 def busquedaUsuario(request):
      return render(request,'App1/busquedaUsuario.html')
+"""
 def buscar(request):
     if request.GET['usuario']:
           usuario = request.GET['usuario']
