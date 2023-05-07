@@ -85,7 +85,7 @@ def busquedaUsuario(request):
 class BookSearchView(ListView):
     model = Usuario
     template_name = 'busquedaUsuario.html'
-    context_object_name = 'nombre_d_usuarios'
+    context_object_name = 'Usuarios encontrados'
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -99,6 +99,9 @@ class BookSearchView(ListView):
         if email:
             queryset = queryset.filter(email__icontains=email)
         return queryset
+def book_search(request):
+    form = BookSearchForm() # instanciamos el formulario
+    return render(request, 'busquedaUsuario.html', {'form': form}) # retornamos el template y el formulario en el contexto
     
 
 """

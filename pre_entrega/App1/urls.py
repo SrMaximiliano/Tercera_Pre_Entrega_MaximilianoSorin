@@ -13,6 +13,7 @@ urlpatterns = [
     path("Formulario_Vendedor_certificado", views.Formulario_Vendedor_certificado, name="Formulario_Vendedor_certificado"),
     path("Formulario_Promocion_vendedor", views.Formulario_Promocion_vendedor, name="Formulario_Promocion_vendedor"),
     path('get_queryset/', BookSearchView.as_view(), name='get_queryset'),
+    path('busquedaUsuario/', BookSearchView.as_view(), name='busquedaUsuario'),
 
 
 
