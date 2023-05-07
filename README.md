@@ -15,3 +15,5 @@ Al momento en el que se tenia que entregar la pre-entrega no habiamos aprendido 
 Con darle click a "Buscar usuarios" o escribiendo http://127.0.0.1:8000/App1/busquedaUsuario/ podra ver mi funcion para buscar usuarios de la clase Usuarios (ya que solo habia que hacer una funcion para ver una unica clase). Esta fue hecha con ayuda de una tutora de coderhouse de atencion al cliente. Intente ponerla en una template para que se vea mas linda, pero por alguna razon no pude, siempre me aparece un error con el link.
 
 Disculpe la demora y muchas gracias por la paciencia! Este tema me estuvo costando bastante y encima estoy muy ocpudado con la facultad, asi que a esa se debio la situacion y el tan solo haber completado las cosas pedidas por las consignas, sin sobresalir.
+
+P.D: los archivos ver final 3cera Pre_entrega serian en teoria todos los que modifique debido a que 
