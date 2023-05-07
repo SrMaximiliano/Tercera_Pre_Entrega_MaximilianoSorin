@@ -7,14 +7,18 @@ from django.views.generic import ListView
 
 def Inicio(request):
     return render(request,'App1/Inicio.html')
-def Perfil(request):
-    return render(request,'App1/Perfil.html')
-def Vendedor_certificado(request):
-    return render(request,'App1/Vendedor_certificado.html')
+#def Perfil(request):
+#    return render(request,'App1/Perfil.html')
+# No esta siendo usada por ahora. Sera usada mas tarde
+def Vendedor_Promocionado(request):
+    return render(request,'App1/Vendedor_Promocionado.html')
 def Volverse_prime(request):
     return render(request,'App1/Volverse_prime.html')
-def Iniciar_sesion(request):
-    return render(request,'App1/Iniciar_sesion.html')
+def Crear_cuenta(request):
+    return render(request,'App1/Crear_cuenta.html')
+
+
+#Formularios para crear usuarios, vendedores con la promocion que es basicamente publicidad y vendedores certificados
 def Formulario_crearusuario(request):
       if request.method == "POST":
             miFormulario = UsuariosFormularios(request.POST) # Aqui me llega la informacion del html
@@ -45,7 +49,6 @@ def Formulario_Promocion_vendedor(request):
             miFormulario = Promo_Vendedor_Formularios()
  
       return render(request, "App1/Formulario_Promocion_vendedor.html", {"miFormulario": miFormulario})
-
 def Formulario_Vendedor_certificado(request):
       if request.method == "POST":
             miFormulario = Vendedor_C_Formularios(request.POST) # Aqui me llega la informacion del html
@@ -61,27 +64,9 @@ def Formulario_Vendedor_certificado(request):
             miFormulario = Vendedor_C_Formularios()
  
       return render(request, "App1/Formulario_Vendedor_certificado.html", {"miFormulario": miFormulario})
-"""
-def buscar(request):
-     respuesta= f"Estoy buscando al usuario: {request.GET['Usuario']}"
-     return HttpResponse(respuesta)
-
-def buscar(request):
-     if request.GET['nombre_d_usuario']:
-          nombre_d_usuario = request.GET['nombre_d_usuario']
-          nombre_d_usuarios= Usuario.objects.filter(nombre_d_usuario__icontains=nombre_d_usuario)
-
-          return render(request,'App1/resultadosBusqueda.html', {"usuarios":nombre_d_usuarios, "contraseña": nombre_d_usuarios })
-     else:
-          respuesta= "No enviaste datos"
-
-     return HttpResponse(respuesta)
 
 
-
-def busquedaUsuario(request):
-     return render(request,'App1/busquedaUsuario.html')
-"""
+#Funcion y clase para buscar Usuarios. 
 class BookSearchView(ListView):
     model = Usuario
     template_name = 'busquedaUsuario.html'
@@ -99,11 +84,17 @@ class BookSearchView(ListView):
         if email:
             queryset = queryset.filter(email__icontains=email)
         return queryset
-def book_search(request):
-    form = BookSearchForm() # instanciamos el formulario
-    return render(request, 'busquedaUsuario.html', {'form': form}) # retornamos el template y el formulario en el contexto
     
-
+def buscar_usuario(request):
+    usuarios = Usuario.objects.none()
+    if request.method == 'GET':
+        form = BookSearchForm(request.GET)
+        if form.is_valid():
+            nombre_usuario = form.cleaned_data.get('nombre_usuario')
+            usuarios = Usuario.objects.filter(nombre_d_usuario__icontains=nombre_usuario)
+    else:
+        form = BookSearchForm()
+    return render(request, 'App1/busquedaUsuario.html', {'form': form, 'Usuarios_encontrados': usuarios})
 """
 def buscar(request):
     if request.GET['usuario']:

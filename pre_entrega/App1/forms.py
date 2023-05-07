@@ -5,13 +5,6 @@ from django import forms
 #    nombre = forms.CharField()
 #    curso = forms.IntegerField()
 
-class ProfesorFormulario(forms.Form):
-    id= forms.IntegerField()
-    nombre= forms.CharField(max_length=30)
-    apellido= forms.CharField(max_length=30)
-    email= forms.EmailField()
-    profesion= forms.CharField(max_length=30)    
-
 class UsuariosFormularios(forms.Form):
     nombre_d_usuario= forms.CharField(max_length=30)
     email= forms.EmailField()
@@ -23,7 +16,7 @@ class Vendedor_C_Formularios(forms.Form):
     nombre= forms.CharField(max_length=30)
     apellido= forms.CharField(max_length=30)
     email= forms.EmailField()
-    DNI= forms.CharField()
+    DNI= forms.IntegerField()
 
 class Promo_Vendedor_Formularios(forms.Form):
     contraseñas= forms.CharField(max_length=30)
@@ -31,10 +24,8 @@ class Promo_Vendedor_Formularios(forms.Form):
     nombre= forms.CharField(max_length=30)
     apellido= forms.CharField(max_length=30)
     email= forms.EmailField()
-    DNI= forms.CharField()
-    Promo_code= forms.CharField(min_length=15, max_length=15)
+    DNI= forms.IntegerField()
+    Promo_code= forms.IntegerField()
 
 class BookSearchForm(forms.Form):
-    nombre_d_usuario= forms.CharField(label='nombre_d_usuario', required=False)
-    contraseñas = forms.CharField(label='contraseñas', required=False)
-    email= forms.EmailField(label='email', required=False)
+    nombre_usuario = forms.CharField(label='Nombre de usuario', required=False)

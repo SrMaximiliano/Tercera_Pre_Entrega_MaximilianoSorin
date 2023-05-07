@@ -1,22 +1,24 @@
-{% extends 'base.html' %}
+{% extends 'App1/padre.html' %}
 
-{% block content %}
+{% block contenidoQueCambia %}
+        <!-- No se porque, pero no puedo ponerlo en una template para que se vea lindo, siempre me aparece un error :/ -->
   <h1>Search Results</h1>
   <form method="get">
     {{ form.as_p }}
     <button type="submit">Search</button>
   </form>
-  {% if book_list %}
-    <ul>
-    {% for book in book_list %}
-      <li>{{ book.title }} by {{ book.author }}</li>
-    {% endfor %}
-    </ul>
-  {% else %}
-    <p>No results found</p>
-  {% endif %}
+  {% if Usuarios_encontrados %}
+  <ul>
+  {% for usuario in Usuarios_encontrados %}
+    <li>{{ usuario.nombre_d_usuario }} - {{ usuario.email }} - {{ usuario.contraseñas }}</li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p>No results found</p>
+{% endif %}
 {% endblock %}
-<form method="get" action="{% url 'busquedaUsuario' %}">
+
+<form method="get" action="{% url 'busquedaUsuario/' %}">
   <!-- campos del formulario -->
   <button type="submit">Buscar</button>
 </form>
