@@ -33,3 +33,8 @@ class Promo_Vendedor_Formularios(forms.Form):
     email= forms.EmailField()
     DNI= forms.CharField()
     Promo_code= forms.CharField(min_length=15, max_length=15)
+
+class BookSearchForm(forms.Form):
+    nombre_d_usuario= forms.CharField(label='nombre_d_usuario', required=False)
+    contraseñas = forms.CharField(label='contraseñas', required=False)
+    email= forms.EmailField(label='email', required=False)

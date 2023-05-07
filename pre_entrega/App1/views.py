@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from App1.models import *
 from App1.forms import *
+from django.views.generic import ListView
+
 
 def Inicio(request):
     return render(request,'App1/Inicio.html')
@@ -63,7 +65,7 @@ def Formulario_Vendedor_certificado(request):
 def buscar(request):
      respuesta= f"Estoy buscando al usuario: {request.GET['Usuario']}"
      return HttpResponse(respuesta)
-"""
+
 def buscar(request):
      if request.GET['nombre_d_usuario']:
           nombre_d_usuario = request.GET['nombre_d_usuario']
@@ -79,6 +81,26 @@ def buscar(request):
 
 def busquedaUsuario(request):
      return render(request,'App1/busquedaUsuario.html')
+"""
+class BookSearchView(ListView):
+    model = Usuario
+    template_name = 'busquedaUsuario.html'
+    context_object_name = 'nombre_d_usuarios'
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        nombre_d_usuario = self.request.GET.get('nombre_d_usuario')
+        contraseñas = self.request.GET.get('contraseñas')
+        email = self.request.GET.get('email')
+        if nombre_d_usuario:
+            queryset = queryset.filter(nombre_d_usuario__icontains=nombre_d_usuario)
+        if contraseñas:
+            queryset = queryset.filter(contraseñas__icontains=contraseñas)
+        if email:
+            queryset = queryset.filter(email__icontains=email)
+        return queryset
+    
+
 """
 def buscar(request):
     if request.GET['usuario']:

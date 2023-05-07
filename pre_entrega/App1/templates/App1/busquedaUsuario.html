@@ -1,24 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario - Agregar Curso</title>
-</head>
-<body>
-    {% if miFormulario.errors %} 
-    
-    <p style="color: red;"> Estan mal los datos, revisalos</p>
-    
-    {% endif %}
+{% extends 'base.html' %}
 
-    <form action="/App1/buscar/" method="get">
-
-        <input type="text"  name="usuario" id="usuario">
-
-        <input type="submit" value="Buscar">
-        
-     </form>   
-</body>
-</html>
+{% block content %}
+  <h1>Search Results</h1>
+  <form method="get">
+    {{ form.as_p }}
+    <button type="submit">Search</button>
+  </form>
+  {% if book_list %}
+    <ul>
+    {% for book in book_list %}
+      <li>{{ book.title }} by {{ book.author }}</li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p>No results found</p>
+  {% endif %}
+{% endblock %}
