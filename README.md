@@ -1,4 +1,4 @@
-# Tercera_Pre_Entrega_MaximilianoSorin
+# Tercera Pre-Entrega Maximiliano Sorin
 Orden para probar cosas!
 Basicamente todo mi codigo esta en App1, asi que ignorar "pre_entrega"
 
